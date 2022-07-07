@@ -275,6 +275,9 @@ def build_skia(build_base):
 
     if target_cpu:
         build_cmd.extend(["--target-cpu", target_cpu])
+        
+    # disable creating virtualenv
+    build_cmd.append("--no-virtualenv")
 
     subprocess.run(build_cmd, check=True, env=env)
     return build_dir
